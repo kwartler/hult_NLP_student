@@ -25,7 +25,8 @@ library(viridisLite)
 # Bring in our supporting functions & support data objects
 source('~/Desktop/hult_NLP_student/lessons/Z_otherScripts/ZZZ_supportingFunctions.R')
 emoji <- read.csv('emojis.csv')
-stops <- c(stopwords('SMART'),'dell','laptop', 'inspiron', 'windows', 'support')
+stops <- c(stopwords('SMART'),'dell','laptop', 'inspiron', 
+           'issue', 'support','problem', 'dellname','community') 
 
 # Data
 forum <- read_fst('2020-12-18_dellForum_k1_k5540.fst', from = 1, to = 1000) #limited for class ~26k posts
@@ -151,8 +152,9 @@ allEmotionClasses <- as.matrix(allEmotionClasses)
 colnames(allEmotionClasses) <- names(emotionLst)
 
 # Make comparison cloud, with this many classes you need a lot more posts to make it viable
+## remeber to wait ~30secs to get the full effect
 comparison.cloud(allEmotionClasses, 
-                 max.words=75, 
+                 max.words=500, 
                  random.order=FALSE,
                  title.size=1,
                  colors=viridis(10),
