@@ -15,7 +15,7 @@ library(plyr)
 Sys.setlocale("LC_CTYPE", "en_US.UTF-8")
 
 # WD
-setwd("/Users/edwardkwartler/Desktop/GSERM_Text_Remote_admin/lessons/E_SyntacticParsing_DataSources/data")
+setwd("~/Desktop/hult_NLP_student/lessons/class7/data")
 
 # Youtube URL
 #https://www.youtube.com/watch?v=Q-wRhzWaCac
