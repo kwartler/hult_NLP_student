@@ -45,7 +45,7 @@ stops <- c(stopwords('english'), 'carrefour', 'tesco')
 retailers <- Corpus(DirSource("polarizedCloud/"))
 
 # Get word counts
-# mind the order is the same as is list.files('~/Documents/GSERM_Text_Remote_admin/lessons/B_Basic_Visuals/data/polarizedCloud')
+# mind the order is the same as is list.files('~/Desktop/hult_NLP_student/lessons/class3/data/polarizedCloud')
 carreCount <- length(unlist(strsplit(content(retailers[[1]]), " ")))
 tescoCount <- length(unlist(strsplit(content(retailers[[2]]), " ")))
 

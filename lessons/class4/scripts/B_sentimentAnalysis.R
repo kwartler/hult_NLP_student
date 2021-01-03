@@ -7,7 +7,7 @@
 #'
 
 # Wd
-setwd('~/Desktop/GSERM_Text_Remote_admin/lessons/C_Sentiment_Unsupervised/data')
+setwd("~/Desktop/hult_NLP_student/lessons/class4/data")
 
 # Libs
 library(tm)
