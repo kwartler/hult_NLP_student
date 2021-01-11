@@ -14,7 +14,7 @@ install.packages('ggplot2')
 
 # or 
 install.packages('pacman')
-pacman::p_load(caret,clue,cluster,dplyr,e1071,echarts4r,fst,ggalt,ggdendrogram,
+pacman::p_load(caret,clue,cluster,dplyr,e1071,echarts4r,fst,ggalt,
  ggplot2,ggthemes,ggwordcloud,glmnet,hunspell,kmed,lda,LDAvis,leaflet,lexicon,
  lsa,mapproj,maps,mgsub,MLmetrics,pbapply,pdftools,plotrix,plyr,pROC,qdap,
  radarchart,rbokeh,RColorBrewer,readxl,reshape2,RTextTools,rvest,skmeans,
