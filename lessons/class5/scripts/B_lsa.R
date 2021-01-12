@@ -1,7 +1,7 @@
 #' Title: Latent Semantic Analysis
 #' Purpose: apply lsa to reduce dimensionality
 #' Author: Ted Kwartler
-#' email: edwardkwartler@fas.harvard.edu
+#' email: edward.kwartler@hult.edu
 #' License: GPL>=3
 #' Date: Jan 1 2020
 #' Another good option

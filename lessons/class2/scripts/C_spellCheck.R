@@ -1,13 +1,13 @@
 #' Title: Spell Check Examples
 #' Purpose: Run through basic spell checking of text
 #' Author: Ted Kwartler
-#' email: edwardkwartler@fas.harvard.edu
+#' email: edward.kwartler@hult.edu
 #' License: GPL>=3
 #' Date: Dec 30 2020
 #'
 
 # Libs
-#library(qdap) #pg 45 in book has another option but crashes cloud instance
+#library(qdap) #pg 45 in book has another option but crashes rstudio free cloud instances
 library(spelling)
 library(hunspell)
 library(mgsub)
@@ -27,7 +27,7 @@ allTxt      <- c(exampleTxtA, exampleTxtB, exampleTxtC)
 ignoreWords = c('luve')
 
 # Identify mispelled words
-#spell_check_files(path, ignore = ignoreWords, lang = "en_US") #check files on disk
+#spell_check_files(path, ignore = ignoreWords, lang = "en_US") #check files on disk for formats: markdown, but also latex, html, xml, pdf, and plain text
 spell_check_text(allTxt, lang = "en_US")
 spell_check_text(allTxt, ignore = ignoreWords, lang = "en_US")
 

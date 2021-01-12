@@ -1,7 +1,7 @@
 #' Title: LSA for Modeling - Bayes
 #' Purpose: use LSA to reduce dimensions and create a Bayesian model
 #' Author: Ted Kwartler
-#' email: edwardkwartler@fas.harvard.edu
+#' email: edward.kwartler@hult.edu
 #' License: GPL>=3
 #' Date: Dec 28 2020
 #' Other Options worth exploring

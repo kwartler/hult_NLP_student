@@ -1,7 +1,7 @@
 #' Title: Amazon X Ray
 #' Purpose: Explore some X-Ray data
 #' Author: Ted Kwartler
-#' email: edwardkwartler@fas.harvard.edu
+#' email: edward.kwartler@hult.edu
 #' License: GPL>=3
 #' Date: Dec 30 2020
 #'

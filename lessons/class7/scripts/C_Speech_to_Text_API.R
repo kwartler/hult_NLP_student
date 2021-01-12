@@ -1,7 +1,7 @@
 #' Title: Speech to Text
 #' Purpose: Use an API to perform speech to text
 #' Author: Ted Kwartler
-#' email: edwardkwartler@fas.harvard.edu
+#' email: edward.kwartler@hult.edu
 #' License: GPL>=3
 #' Date: Jan 2, 2021
 #' googleLanguageR is a package to perform the same function but there are other APIs

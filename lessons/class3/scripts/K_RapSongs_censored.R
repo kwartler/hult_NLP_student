@@ -1,13 +1,13 @@
 #' Title: Rap Songs, revised so not lyrics
 #' Purpose: Rate of speech for hip/hop; Build a plot of the rate of change for lyrics
 #' Author: Ted Kwartler
-#' email: edwardkwartler@fas.harvard.edu
+#' email: edward.kwartler@hult.edu
 #' License: GPL>=3
 #' Date: Dec 28 2020
 #'
 
 # wd
-setwd("~/Desktop/hult_NLP_admin/lessons/B_Basic_Visuals/data/z_rap_songs_revised")
+setwd("~/Desktop/hult_NLP_student/lessons/class3/data/z_rap_songs_revised")
 
 # Options - this is to turn off scientific notation
 options(stringsAsFactors = F, scipen = 999)

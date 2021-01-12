@@ -1,7 +1,7 @@
 #' Title: LSA for Modeling w/GLM
 #' Purpose: use LSA to reduce dimensions and create a Logistic Regression model
 #' Author: Ted Kwartler
-#' email: edwardkwartler@fas.harvard.edu
+#' email: edward.kwartler@hult.edu
 #' License: GPL>=3
 #' Date: Dec 28 2020
 #' Other Options worth exploring

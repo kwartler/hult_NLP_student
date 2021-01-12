@@ -1,7 +1,7 @@
 #' Title: Emotional Context & Clustering for Topics
 #' Purpose: Apply NRC to get news source sentiment & cluster to get news topics
 #' Author: Ted Kwartler
-#' email: edwardkwartler@fas.harvard.edu
+#' email: edward.kwartler@hult.edu
 #' License: GPL>=3
 #' Date: Jan 1 2020
 

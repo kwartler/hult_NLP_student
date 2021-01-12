@@ -1,13 +1,13 @@
 #' Title: String Search Manipulation
 #' Purpose: Learn some basic string manipulation functions
 #' Author: Ted Kwartler
-#' email: edwardkwartler@fas.harvard.edu
+#' email: edward.kwartler@hult.edu
 #' License: GPL>=3
 #' Date: Dec 30 2020
 #'
 
 # Set the working directory
-setwd("/cloud/project/lessons/A_Monday/data/tweets")
+setwd("~/Desktop/hult_NLP_student/lessons/class2/data")
 
 # Libs
 library(stringi)
@@ -68,6 +68,5 @@ gsub('rt','', exampleTxt)
 gsub('rt','', exampleTxt, ignore.case = T)
 gsub('^RT','' ,exampleTxt) #another type of anchor
 gsub('\\bRT\\b','' ,exampleTxt) # escaped "\b" is actually a "backspace" thus its only looking for that
-
 
 # End

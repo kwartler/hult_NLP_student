@@ -1,7 +1,7 @@
 #' Title: Amazon X-Ray part 2
 #' Purpose: Explore more movie data
 #' Author: Ted Kwartler
-#' email: edwardkwartler@fas.harvard.edu
+#' email: edward.kwartler@hult.edu
 #' License: GPL>=3
 #' Date: Dec 30 2020
 #'

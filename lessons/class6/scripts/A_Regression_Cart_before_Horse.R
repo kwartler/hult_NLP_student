@@ -1,7 +1,7 @@
 #' Title: Regression
 #' Purpose: Learn about a regression model
 #' Author: Ted Kwartler
-#' email: edwardkwartler@fas.harvard.edu
+#' email: edward.kwartler@hult.edu
 #' License: GPL>=3
 #' Date: Dec 28 2020
 #'
@@ -9,6 +9,7 @@
 # libs
 library(ggplot2)
 library(dplyr)
+library(tidyverse) # this is a late class addition, the diamonds data set moved libraries.
 
 # Data
 data('diamonds') # No Working Directory needed, ggplot come with the diamonds data

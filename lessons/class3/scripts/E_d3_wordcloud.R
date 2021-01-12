@@ -1,13 +1,13 @@
 #' Title: D3 Word cloud
 #' Purpose: Make a d3 wordcloud webpage
 #' Author: Ted Kwartler
-#' email: edwardkwartler@fas.harvard.edu
+#' email: edward.kwartler@hult.edu
 #' License: GPL>=3
 #' Date: Dec 28 2020
 #'
 
 # Set the working directory
-setwd("~/Desktop/hult_NLP_admin/lessons/B_Basic_Visuals/data")
+setwd("~/Desktop/hult_NLP_student/lessons/class3/data")
 
 # Libs
 library(tm)

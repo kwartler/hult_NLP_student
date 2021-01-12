@@ -1,7 +1,7 @@
 #' Title: Topic Modeling 
 #' Purpose: Unsupervised LDA model building
 #' Author: Ted Kwartler
-#' email: edwardkwartler@fas.harvard.edu
+#' email: edward.kwartler@hult.edu
 #' License: GPL>=3
 #' Date: Jan 1 2020
 #'

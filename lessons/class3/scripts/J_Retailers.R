@@ -1,7 +1,7 @@
 #' Title: Retailers Revised
 #' Purpose: Build a tag cloud Experimental
 #' Author: Ted Kwartler
-#' email: edwardkwartler@fas.harvard.edu
+#' email: edward.kwartler@hult.edu
 #' License: GPL>=3
 #' Date: Dec 28 2020
 #'
@@ -13,7 +13,7 @@ library(tm)
 library(dplyr)
 
 # Set wd
-setwd("~/Desktop/hult_NLP_admin/lessons/B_Basic_Visuals/data")
+setwd("~/Desktop/hult_NLP_student/lessons/class3/data")
 
 # Options & Functions
 options(stringsAsFactors = FALSE, scipen = 999)

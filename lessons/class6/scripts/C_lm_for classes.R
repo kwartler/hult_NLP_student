@@ -1,7 +1,7 @@
 #' Title: Linear modeling for classification
 #' Purpose: Why doesn't LM work for binary classification?
 #' Author: Ted Kwartler
-#' email: edwardkwartler@fas.harvard.edu
+#' email: edward.kwartler@hult.edu
 #' License: GPL>=3
 #' Date: Dec 28 2020
 #'

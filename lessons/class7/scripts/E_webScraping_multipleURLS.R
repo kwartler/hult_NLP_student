@@ -1,7 +1,7 @@
 #' Title: Webscraping multiple pages
 #' Purpose: Scrape a page for all urls, then scrape each one in order
 #' Author: Ted Kwartler
-#' email: edwardkwartler@fas.harvard.edu
+#' email: edward.kwartler@hult.edu
 #' License: GPL>=3
 #' Date: Dec 28 2020
 #' 

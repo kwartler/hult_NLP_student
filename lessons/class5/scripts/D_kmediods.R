@@ -1,7 +1,7 @@
 #' Title: K Mediods
 #' Purpose: apply k Mediod clustering to text
 #' Author: Ted Kwartler
-#' email: edwardkwartler@fas.harvard.edu
+#' email: edward.kwartler@hult.edu
 #' License: GPL>=3
 #' Date: Jan 1 2020
 #' https://cran.r-project.org/web/packages/kmed/vignettes/kmedoid.html

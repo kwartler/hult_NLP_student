@@ -1,7 +1,7 @@
 #' Title: Read PDF
 #' Purpose: Read PDFs
 #' Author: Ted Kwartler
-#' email: edwardkwartler@fas.harvard.edu
+#' email: edward.kwartler@hult.edu
 #' License: GPL>=3
 #' Date: Dec 29 2020
 #'

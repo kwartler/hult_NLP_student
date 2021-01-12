@@ -1,7 +1,7 @@
 #' Title: Optical Character Revo
 #' Purpose: Use tesseract for OCR
 #' Author: Ted Kwartler
-#' email: ehk116@gmail.com
+#' email: edward.kwartler@hult.edu
 #' License: GPL>=3
 #' Date: Dec 28 2020
 #' Notes: this is largely poached from here:

@@ -1,13 +1,13 @@
 #' Title: Text Organization for Bag of Words
 #' Purpose: Learn some basic cleaning functions & term frequency
 #' Author: Ted Kwartler
-#' email: edwardkwartler@fas.harvard.edu
+#' email: edward.kwartler@hult.edu
 #' License: GPL>=3
 #' Date: Dec 30 2020
 #'
 
 # Set the working directory
-setwd("~/Desktop/hult_NLP_admin/lessons/A_HU_Setup_Intro_Basics/data")
+setwd("~/Desktop/hult_NLP_student/lessons/class2/data")
 
 # Libs
 library(tm)

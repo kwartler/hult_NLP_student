@@ -1,7 +1,7 @@
 #' Title: Basic Test Drive
 #' Purpose: Learn some basic functions
 #' Author: Ted Kwartler
-#' email: edwardkwartler@fas.harvard.edu
+#' email: edward.kwartler@hult.edu
 #' License: GPL>=3
 #' Date: Dec 28 2020
 #'

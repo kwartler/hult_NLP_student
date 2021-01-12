@@ -1,13 +1,13 @@
 #' Title: Simple Word Cloud
 #' Purpose: Build a word cloud with bi-grams
 #' Author: Ted Kwartler
-#' email: edwardkwartler@fas.harvard.edu
+#' email: edward.kwartler@hult.edu
 #' License: GPL>=3
 #' Date: Dec 30 2020
 #'
 
 # Set the working directory
-setwd("~/Desktop/hult_NLP_admin/lessons/B_Basic_Visuals/data")
+setwd("~/Desktop/hult_NLP_student/lessons/class3/data")
 
 # Libs
 library(tm)

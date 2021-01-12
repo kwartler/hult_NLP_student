@@ -1,7 +1,7 @@
 #' Title: Polarity Math
 #' Purpose: Learn and calculate polarity 
 #' Author: Ted Kwartler
-#' email: edwardkwartler@fas.harvard.edu
+#' email: edward.kwartler@hult.edu
 #' License: GPL>=3
 #' Date: Dec 30 2020
 #'

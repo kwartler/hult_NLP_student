@@ -4,10 +4,10 @@
 #' email: edwardkwartler@fas.harvard.edu
 #' License: GPL>=3
 #' Date: Dec 28 2020
-#'
+#' email: edward.kwartler@hult.edu
 
 # Set the working directory
-setwd("~/Desktop/hult_NLP_admin/lessons/B_Basic_Visuals/data")
+setwd("~/Desktop/hult_NLP_student/lessons/class3/data")
 
 # Options
 options(scipen = 999)

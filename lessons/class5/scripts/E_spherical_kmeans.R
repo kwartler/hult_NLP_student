@@ -1,7 +1,7 @@
 #' Title: Spherical K Means
 #' Purpose: apply cosine similarity kmeans clustering
 #' Author: Ted Kwartler
-#' email: edwardkwartler@fas.harvard.edu
+#' email: edward.kwartler@hult.edu
 #' License: GPL>=3
 #' Date: Jan 1 2020
 # Wd
