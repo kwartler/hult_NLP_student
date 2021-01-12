@@ -8,7 +8,7 @@
 #'
 
 ## Set the working directory
-setwd("~/Desktop/hult_NLP_admin/lessons/A_HU_Setup_Intro_Basics/data")
+setwd("~/Desktop/hult_NLP_student/lessons/class1/data")
 
 # Libs
 library(maps)

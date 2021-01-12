@@ -1,0 +1,27 @@
+Open Questions for Jan 2021
+
+1. What about dealing with dialects like Swiss or Austrian German?
+https://universaldependencies.org/de/index.html
+According to documentation German tree banks in R include:  
+german-gsd: "GSD" are the basic, meant to be universal 
+german-hdt: Hamburg Dependency Treebank, created at the University of Hamburg
+
+2. Another use case is political science which may be of interest.
+Example political tweet data sets from a time of protests in the US are within this folder.
+
+3. Is there a function that performs a substitution and trimws?  Yes...I forgot during class but this code will suffice:
+
+```{r}
+#https://rdrr.io/cran/stringi/man/stri_replace.html
+
+library(stringi)
+
+txt <- c('this is a bit of text',
+         'this is a bit of txt')
+
+# Psuedo Code: stri_replace_all(text vector, replacement, pattern to find)
+stri_replace_all(txt, 'text', regex = 'txt')
+#notice the trailing space is removed
+stri_replace_all(txt, '', regex = 'a bit of ')
+```
+
