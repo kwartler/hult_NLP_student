@@ -7,7 +7,7 @@
 # To limit errors please run this code
 Sys.setlocale('LC_ALL','C')
 
-#### 1PT
+#### 
 # set your working directory
 
 
@@ -17,7 +17,7 @@ Sys.setlocale('LC_ALL','C')
 # load the homework data in an object called `text`
 
 
-#### 1PT
+#### 
 # 
 # Examine the first 10 rows of data
 
@@ -31,7 +31,7 @@ Sys.setlocale('LC_ALL','C')
 # What are the dimension (number of rows and columns)? Use a function. Hint dim(),nrow(), ncol() could all help you
 # Answer:
 
-#### 1PT
+#### 
 # Find out what rows have "virus" in the $text column, ignoring the case, in an object called idx
 
 
@@ -41,7 +41,7 @@ Sys.setlocale('LC_ALL','C')
 # What is the tenth text mentioning "virus"
 # Answer:
 
-#### 1PT
+#### 
 # Use grepl to make idx  for 'virus', ignoring case
 
 
@@ -51,7 +51,7 @@ Sys.setlocale('LC_ALL','C')
 # As a percent, how many tweets mention "virus" among all tweets?
 # Answer: 
 
-#### 5 PTs
+#### 
 # Write a function accepting a text column
 # use gsub subsituting 'http\\S+\\s*' for '' which removes URLS
 # use gsub substituting '(RT|via)((?:\\b\\W*@\\w+)+)' for '' which removes "RT" exactly
@@ -67,7 +67,7 @@ basicSubs <- function(x){
 # apply the function to JUST THE TEXT COLUMN to  a new object txt
 
 
-#### 3 PTs
+#### 
 # Use sum with stri_count on the newt txt object
 # with "trump", "biden" and in the last one check for "virus" OR "vaccine"
 trump  <- ___(stri_count(___, fixed ='_____'))
@@ -81,14 +81,14 @@ termFreq <- data.frame(terms = c('trump','biden','vterms'),
 # Examine
 termFreq
 
-# Plot it with ggplot2 by filling in the correct data, adding a layers "theme_gdocs() + theme(legend.position = "none")"
+# Plot a geom_bar with ggplot2 by filling in the correct data, adding a layers "theme_gdocs() + theme(legend.position = "none")"
 ggplot(________, aes(x = reorder(terms, freq), y = freq,fill=freq)) + 
-  geom_bar(stat = "identity") + coord_flip() + 
-  ___________() + _____(_______________ = "____")
+  _________(stat = "identity") + coord_flip() + 
+  ___________() + _____(___________)
 
-#### 8 PTs
+#### 
 # Create some stopwords using the 'SMART' lexicon and add 'rofl'
-stops <- c(______('_____'), '____')
+stops <- c(___)
 
 # Create a Clean Corpus Function
 # add into the function removePunctuation
@@ -117,7 +117,7 @@ cleanTxt <- ___________(cleanTxt, stops)
 
 
 # What are the dimensions of this matrix
-___(cleanMat)
+___(______)
 
 # What do rows represent in this matrix?
 # Answer: 
