@@ -105,9 +105,8 @@ nrcSent <- inner_join(tidyCorp,nrcLex, by=c('term' = 'term'))
 nrcSent
 
 # Quick Analysis
-table(nrcSent$sentiment)
-emos <- data.frame(table(nrcSent$sentiment))
-#emos <- emos[-c(6,7),] #drop columns if needed
+emos <- aggregate(count ~ sentiment + document, nrcSent, sum)
+emos$document <- NULL
 chartJSRadar(scores = emos, labelSize = 10, showLegend = F)
 
 # End

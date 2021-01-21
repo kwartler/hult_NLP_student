@@ -10,11 +10,11 @@
 library(qdap)
 
 # Neutral
-polarity('netural neutral neutral')
+polarity('neutral neutral neutral')
 (0 + 0 + 0)/sqrt(3)
 
 # Amplifier
-polarity('netural very good')
+polarity('neutral very good')
 (0 + 0.8 + 1)/sqrt(3)
 
 # De-Amplifier
