@@ -86,4 +86,22 @@ y
 is.null(NULL)
 is.null(3)
 
+### Lists
+x <- list(1, 2, 3)
+x
+
+y <- list(c(1,2,3),
+          c(4,5,6),
+          c(7,8,9))
+y
+
+z <- list(mtcars, mtcars, mtcars)
+z
+
+z2 <- list(mtcars, 1,c(1,2,3))
+z2
+z2[[1]]
+z2[[2]]
+z2[[3]]
+
 # End
