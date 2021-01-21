@@ -18,7 +18,7 @@ polarity('neutral very good')
 (0 + 0.8 + 1)/sqrt(3)
 
 # De-Amplifier
-polarity('netural barely good')
+polarity('neutral barely good')
 (-0.8 + 1) /sqrt(3)
 
 # Negation
