@@ -47,7 +47,7 @@ text <- "Text Mining in Practice with R. It's the math of talking, you're two fa
 #translatedTxt <- gl_translate(text, target = "da")
 #saveRDS(translatedTxt, 'translatedTxt.rds')
 translatedTxt <- readRDS('translatedTxt.rds')
-translatedTxt
+translatedTxt$translatedText
 
 #### Speech to Text
 #http://www.voiptroubleshooter.com/open_speech/american.html

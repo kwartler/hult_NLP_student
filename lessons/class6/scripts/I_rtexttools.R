@@ -38,6 +38,8 @@ test  <- txt[-idx]
 cleanTrain <- cleanCorpus(VCorpus(VectorSource(train)), stops)
 cleanTrain <- data.frame(text = unlist(sapply(cleanTrain, `[`, "content")),
                        stringsAsFactors=F)
+
+# This is not our original cleanMatrix function!
 trainDTMm <- create_matrix(cleanTrain, language="english")
 
 # Create the container
