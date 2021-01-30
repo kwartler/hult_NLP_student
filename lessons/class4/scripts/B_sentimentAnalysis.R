@@ -76,6 +76,9 @@ weekndWords$word <- tolower(weekndWords$word )
 weekndWords <- left_join(weekndWords,afinn, by=c('word' = 'word'))
 weekndWords[is.na(weekndWords$value),2] <- 0
 plot(weekndWords$value, type="l", main="Quick Timeline of Identified Words") 
+
+# Cumulative Sum
+plot(cumsum(weekndWords$value),type="l", main="Quick Timeline of Identified Words") 
 ##### BACK TO PPT #####
 
 # Get nrc lexicon; deprecated in tidytext, use library(lexicon)
