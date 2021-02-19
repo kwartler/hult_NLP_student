@@ -1,54 +1,101 @@
-#' Title: Rap Songs, revised so not lyrics
+#' Title: Rap Songs (censored version)
 #' Purpose: Rate of speech for hip/hop; Build a plot of the rate of change for lyrics
 #' Author: Ted Kwartler
-#' email: edward.kwartler@hult.edu
 #' License: GPL>=3
 #' Date: Dec 28 2020
 #'
 
-# wd
-setwd("~/Desktop/hult_NLP_student/lessons/class3/data/z_rap_songs_revised")
+# Set wd
+setwd("~/Desktop/hult_NLP_student/lessons/class3/data")
 
-# Options - this is to turn off scientific notation
+# Options
 options(stringsAsFactors = F, scipen = 999)
 
-# libs - let's load out libraries!
+# libs
 library(stringr)
 library(ggplot2)
 library(ggthemes)
 library(pbapply)
 
-# Multiple files as a list - instead of a single file, we create a list, think of this like a workbook in Excel with multiple worksheets.  In R these are "data frames"
-tmp             <- list.files(pattern = '*.csv', full.names = T)
-allSongs        <- pblapply(tmp, read.csv)
-names(allSongs) <- gsub('csv','', tmp)
+# Multiple files as a list
+tmp <- list.files(path = paste0(getwd(),'/z_rap_songs_revised'), pattern = '*.csv', full.names = T)
+tmpNames <- list.files(path = paste0(getwd(),'/z_rap_songs_revised'), pattern = '*.csv', full.names = F)
+allSongs <- pblapply(tmp, read.csv)
+names(allSongs) <- gsub('.csv','', tmpNames)
 
-# Basic Exploration - The revised version removes all lyrics but instead has a simple word count for each song and the cumulative sum of words spoken by millisecond. 
+# Basic Exploration
+allSongs$Dr..Dre.feat..Eminem.
+tail(allSongs$Dr..Dre.feat..Eminem., 1)
+
+## Length of each song
+lastLines <- list()
+for(i in 1:length(allSongs)){
+  x <- max(allSongs[[i]]$endTime)
+  lastLines[[i]] <- x
+}
+songLength <- unlist(lastLines)
+
+# Examine
+max(allSongs[[1]]$endTime) #222197
+songLength[1] 
+
+
+# Make it a named vector
+names(songLength) <- names(allSongs)
+barplot(sort(songLength, decreasing = T), las = 2, main= 'song length in ms')
+
+## Avg words in song
+singleWords <- list()
+for(i in 1:length(allSongs)){
+  print(names(allSongs)[i])
+  x <- sapply(strsplit(allSongs[[i]][,3], " "), length)
+  singleWords[[i]] <- data.frame(song = names(allSongs)[i],
+                                 totalWords  = sum(unlist(x)))
+}
+singleWords <- do.call(rbind, singleWords)
+head(singleWords)
+
+# Make it a named vector
+singleWords <- singleWords[order(singleWords$totalWords, decreasing = T),]
+barplot(singleWords$totalWords, names.arg = singleWords$song, las = 2, main = 'song length in words')
+
+# Relationship songLentgh*totalwords
+plot(songLength, singleWords$totalWords)
+
+
+# Make an example visual using the last `y` from the loop to show it
 head(allSongs[[1]])
+plot(allSongs[[1]]$cumulativeWords, type = 'l')
 
-
-# Get the last values for each song (total words but now with time) - within the list, the "tail" function grabs the last row of each song.  Think of this as grabbing the last single row of each worksheet and capturing that informaiton in a separate worksheet.
+# In this version we calc the max word a bit differently; each song get the last line
 totalWords <- lapply(allSongs, tail,1)
 totalWords <- do.call(rbind, totalWords)
 rownames(totalWords) <- NULL
 head(totalWords)
 
-# Get the timeline of a song - This function combines ("row-bind") all the data frames in the list to one object.  Notice how "allsongs" in your environment has 30 elements (dataframes) while now "songTimeline" has 2476 rows and 3 variables.  Think of this like a copy/paste of each workbook underneath to form one long running single work sheet. 
+# Put all songs together for the viz
 songTimeline  <- do.call(rbind, allSongs)
 
-# Make a plot of the speech cadence - Now we build a plot, ggplot is complext but essentially we are building the visualization layer by layer and have complete control over each layer.  First a blank plot layer, then the lines are added, then the end point is added, then the text and finally some aethetics like a theme and removing the legend.  Dont worry about this section as we will cover more visuals in detail and entire courses are spent on visualization.
-ggplot(songTimeline,  aes(x     = endTime,
-                          y     = cumulativeWords, 
-                          group = song, 
-                          color = song)) +
-  geom_line(alpha = 0.25) +
-  geom_point(data =totalWords, aes(x     = endTime,
-                                   y     = cumulativeWords, 
-                                   group = song, 
-                                   color = song), size = 2) +
+# Lets review a song's complete stats
+songTimeline[1:3,1:3]
+totalWords[1,]
+
+# Song cadence
+p <- ggplot(songTimeline,  aes(x     = endTime,
+                               y     = cumulativeWords, 
+                               group = song, 
+                               color = song)) +
+  geom_line(alpha = 0.25) + 
+  theme_tufte() + theme(legend.position = "none")
+p
+
+# Add another layer
+p + geom_point(data =totalWords, aes(x     = endTime,
+                                     y     = cumulativeWords, 
+                                     group = song, 
+                                     color = song), size = 2) +
   geom_text(data  = totalWords, aes(label=song),
-            hjust = "inward", vjust = "inward", size = 3) + 
-  theme_hc() + theme(legend.position = "none")
+            hjust = "inward", vjust = "inward", size = 3)
 
 # Two clusters, let's see Em vs all
 songTimeline$eminem <- grepl('eminem', 
@@ -57,6 +104,9 @@ songTimeline$eminem <- grepl('eminem',
 totalWords$eminem <- grepl('eminem', 
                            totalWords$song, 
                            ignore.case = T)
+
+
+# Same vis now with color = eminem
 ggplot(songTimeline,  aes(x     = endTime,
                           y     = cumulativeWords, 
                           group = song, 
@@ -69,24 +119,5 @@ ggplot(songTimeline,  aes(x     = endTime,
   geom_text(data  = totalWords, aes(label=song),
             hjust = "inward", vjust = "inward", size = 3) + 
   theme_few() + theme(legend.position = "none")
-
-# Fit a linear model to each song and extract the x-coefficient
-# Poached: https://stackoverflow.com/questions/40284801/how-to-calculate-the-slopes-of-different-linear-regression-lines-on-multiple-plo
-library(tidyr)
-library(purrr)
-library(dplyr)
-doModel  <- function(dat) {lm(cumulativeWords ~ endTime + 0, dat)}
-getSlope <- function(mod) {coef(mod)[2]}
-models <- songTimeline %>% 
-  group_by(song) %>%
-  nest %>% #tidyr::Nest Repeated Values In A List-Variable.
-  mutate(model = map(data, doModel)) %>% 
-  mutate(slope = map(model, coefficients)) 
-
-# Avg words per second by song
-wordsSecs <- data.frame(song = names(allSongs),
-                        wordsPerSecond= (unlist(models$slope) * 1000)) #adj for milliseconds
-wordsSecs[order(wordsSecs$wordsPerSecond, decreasing = T),]
-
 
 # End

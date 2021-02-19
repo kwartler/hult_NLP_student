@@ -1,14 +1,12 @@
 #' Title: Rap Songs
 #' Purpose: Rate of speech for hip/hop; Build a plot of the rate of change for lyrics
 #' Author: Ted Kwartler
-#' email: edward.kwartler@hult.edu
 #' License: GPL>=3
 #' Date: Dec 28 2020
 #'
 
 # Set wd
-setwd("~/Desktop/hult_NLP_student/lessons/class3/data/z_rap_songs")
-
+setwd("~/Desktop/hult_NLP_student/lessons/class3/data")
 
 # Options
 options(stringsAsFactors = F, scipen = 999)
@@ -20,77 +18,58 @@ library(ggthemes)
 library(pbapply)
 
 # Multiple files as a list
-tmp <- list.files(pattern = '*.csv')
+tmp <- list.files(path = paste0(getwd(),'/z_rap_songs'), pattern = '*.csv', full.names = T)
+tmpNames <- list.files(path = paste0(getwd(),'/z_rap_songs'), pattern = '*.csv', full.names = F)
 allSongs <- pblapply(tmp, read.csv)
-names(allSongs) <- gsub('csv','', tmp)
+names(allSongs) <- gsub('.csv','', tmpNames)
 
 # Basic Exploration
-allSongs$BEST.ON.EARTH..Bonus...Explicit..by.Russ.feat..BIA.
+allSongs$B.I.T.C.H...Explicit..by.Megan.Thee.Stallion
+tail(allSongs$B.I.T.C.H...Explicit..by.Megan.Thee.Stallion, 1)
 
 ## Length of each song
-songLength <- sapply(allSongs, function(x){ max(x[,1])}) 
-songLength <- round((songLength /1000)/60, 2)
+lastLines <- list()
+for(i in 1:length(allSongs)){
+  x <- max(allSongs[[i]]$endTime)
+  lastLines[[i]] <- x
+}
+songLength <- unlist(lastLines)
+
+# Examine
+max(allSongs[[1]]$endTime) #181762
+songLength[1] 
+
+
+# Make it a named vector
+names(songLength) <- names(allSongs)
+barplot(sort(songLength, decreasing = T), las = 2, main= 'song length in ms')
 
 ## Avg words in song
 singleWords <- list()
 for(i in 1:length(allSongs)){
   print(names(allSongs)[i])
-  x <- strsplit(as.character(allSongs[[i]][,3])," ")
+  x <- sapply(strsplit(allSongs[[i]][,3], " "), length)
   singleWords[[i]] <- data.frame(song = names(allSongs)[i],
-                                 totalWords  = length(unlist(x)))
+                                 totalWords  = sum(unlist(x)))
 }
 singleWords <- do.call(rbind, singleWords)
 head(singleWords)
 
-# Find the specific locations of terms
-sapply(allSongs, function(x) grep('trippin', x[,3], ignore.case = T))
-sapply(allSongs, function(x) grep('money', x[,3], ignore.case = T))
-allSongs$Lucky.You..feat..Joyner.Lucas...Explicit..by.Eminem.feat..Joyner.Lucas.[44,3]
+# Make it a named vector
+singleWords <- singleWords[order(singleWords$totalWords, decreasing = T),]
+barplot(singleWords$totalWords, names.arg = singleWords$song, 
+        las = 2, main = 'song length in words')
 
-# Find the presence of terms
-sapply(allSongs, function(x) grepl('money', x[,3], ignore.case = T))
-
-# Or find them at the song level
-searchTerm <- 'money'
-termExist <- list()
-for(i in 1:length(allSongs)){
-  x <- paste(allSongs[[i]][,3], collapse = ' ')
-  x <- grepl(searchTerm, x, ignore.case = T)
-  termDF <- data.frame(song  = names(allSongs[i]),
-                       exist = x)
-  names(termDF)[2] <- paste0(searchTerm, '_exists')
-  termExist[[i]] <- termDF
-}
-termExist <- do.call(rbind, termExist)
-
-## stricount words
-countWords <- function(docDF, termVector){
-  response <- list()
-  for(i in 1:length(termVector)){
-    x <- tolower(docDF[,3])
-    x <- sum(str_count(x, termVector[i]))
-    response[[i]] <- x 
-  }
-  
-  response <- do.call(cbind, response)
-  colnames(response) <- termVector
-  return(response)
-}
-
-# Apply to one song as example
-countWords(allSongs[[1]],c('trippin', 'money'))
-
-# Apply to list
-wordCheck <- lapply(allSongs, countWords, c('trippin', 'money'))
-wordCheck <- data.frame(song = names(wordCheck),
-                        do.call(rbind, wordCheck))
-wordCheck
+# Relationship songLentgh*totalwords
+plot(songLength, singleWords$totalWords)
 
 # Calculate the cumulative sum
 wordCountList <- list()
 for(i in 1:length(allSongs)){
+  print(names(allSongs)[i])
   x <- allSongs[[i]]
-  wordCount <- str_count(x$text, "\\S+") #count the space character
+  #wordCount <- str_count(x$text, "\\S+") #count the space character
+  wordCount <- sapply(strsplit(allSongs[[i]][,3], " "), length)
   y <- data.frame(x$endTime, 
                   cumulativeWords = cumsum(wordCount),
                   song = names(allSongs[i]),
@@ -103,23 +82,35 @@ for(i in 1:length(allSongs)){
 songTimeline  <- do.call(rbind, wordCountList)
 head(songTimeline)
 
+# Make an example visual using the last `y` from the loop to show it
+head(y)
+plot(y$cumulativeWords, type = 'l')
+
 # Get the last values for each song (total words but now with time)
 totalWords <- lapply(wordCountList, tail,1)
 totalWords <- do.call(rbind, totalWords)
 
-# Make a plot of the speech cadence
-ggplot(songTimeline,  aes(x     = endTime,
+# Lets review a song's complete stats
+songTimeline[1:3,1:3]
+totalWords[1,]
+
+
+# Song cadence
+p <- ggplot(songTimeline,  aes(x     = endTime,
                           y     = cumulativeWords, 
                           group = song, 
                           color = song)) +
-  geom_line(alpha = 0.25) +
-  geom_point(data =totalWords, aes(x     = endTime,
-                                   y     = cumulativeWords, 
-                                   group = song, 
-                                   color = song), size = 2) +
-  geom_text(data  = totalWords, aes(label=song),
-            hjust = "inward", vjust = "inward", size = 3) + 
+  geom_line(alpha = 0.25) + 
   theme_tufte() + theme(legend.position = "none")
+p
+
+# Add another layer
+p + geom_point(data =totalWords, aes(x     = endTime,
+                                     y     = cumulativeWords, 
+                                     group = song, 
+                                     color = song), size = 2) +
+  geom_text(data  = totalWords, aes(label=song),
+            hjust = "inward", vjust = "inward", size = 3)
 
 # Two clusters, let's see Em vs all
 songTimeline$eminem <- grepl('eminem', 
@@ -128,6 +119,9 @@ songTimeline$eminem <- grepl('eminem',
 totalWords$eminem <- grepl('eminem', 
                            totalWords$song, 
                            ignore.case = T)
+
+
+# Same vis now with color = eminem
 ggplot(songTimeline,  aes(x     = endTime,
                           y     = cumulativeWords, 
                           group = song, 
@@ -140,24 +134,5 @@ ggplot(songTimeline,  aes(x     = endTime,
   geom_text(data  = totalWords, aes(label=song),
             hjust = "inward", vjust = "inward", size = 3) + 
   theme_few() + theme(legend.position = "none")
-
-
-# Fit a linear model to each song and extract the x-coefficient
-# Poached: https://stackoverflow.com/questions/40284801/how-to-calculate-the-slopes-of-different-linear-regression-lines-on-multiple-plo
-library(tidyr)
-library(purrr)
-library(dplyr)
-doModel  <- function(dat) {lm(cumulativeWords ~ endTime + 0, dat)}
-getSlope <- function(mod) {coef(mod)[2]}
-models <- songTimeline %>% 
-  group_by(song) %>%
-  nest %>% #tidyr::Nest Repeated Values In A List-Variable.
-  mutate(model = map(data, doModel)) %>% 
-  mutate(slope = map(model, coefficients)) 
-
-# Avg words per second by song
-wordsSecs <- data.frame(song = names(allSongs),
-                        wordsPerSecond= (unlist(models$slope) * 1000)) #adj for milliseconds
-wordsSecs[order(wordsSecs$wordsPerSecond, decreasing = T),]
 
 # End
