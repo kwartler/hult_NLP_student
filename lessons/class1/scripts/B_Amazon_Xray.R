@@ -7,7 +7,7 @@
 #'
 
 ### 1. Set working directory to your specific movie
-setwd("~/Desktop/hult_NLP_student/lessons/class1/data")
+setwd("~/Documents/GitHub/hult_NLP_student/lessons/class1/data")
 
 # Turn off scientific notation
 options(scipen = 999)
