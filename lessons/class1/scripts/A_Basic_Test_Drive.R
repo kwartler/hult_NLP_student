@@ -177,3 +177,4 @@ list(numberVec = list(oneSection = vectorA,
      stringsVec = vectorC)
 
 # End
+
