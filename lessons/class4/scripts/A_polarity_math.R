@@ -3,7 +3,7 @@
 #' Author: Ted Kwartler
 #' email: edward.kwartler@hult.edu
 #' License: GPL>=3
-#' Date: Dec 30 2020
+#' Date: Dec 28, 2020
 #'
 
 # Libs
