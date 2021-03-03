@@ -23,7 +23,7 @@ sampDiamonds <- sample_n(diamonds, 10000)
 # EDA
 summary(sampDiamonds)
 
-# Remember this?
+# Simple Relationship Carets to Price
 p <- ggplot(sampDiamonds, aes(carat, price)) +geom_point(alpha=0.02)
 p
 

@@ -11,7 +11,7 @@ library(ggplot2)
 library(dplyr)
 
 # wd
-setwd("~/Desktop/hult_NLP_student/lessons/class6/data")
+setwd("~/Desktop/hult_NLP_student/lessons/class5/data")
 
 # Data
 data('diamonds')

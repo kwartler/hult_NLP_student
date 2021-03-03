@@ -9,7 +9,7 @@
 # Libs
 
 # Setwd
-setwd("~/Desktop/hult_NLP_student/lessons/class6/data")
+setwd("~/Desktop/hult_NLP_student/lessons/class5/data")
 
 # Data
 houses <-read.csv('BostonHousing.csv')
@@ -84,5 +84,11 @@ fit2Err   <- (testSet$MEDV - preds2)^2
 sum(manualErr)
 sum(fitErr)
 sum(fit2Err)
+
+## Of course we would actually calculate the RMSE in a function not this manual way.
+ModelMetrics::rmse(testSet$MEDV, manualPreds)
+ModelMetrics::rmse(testSet$MEDV, preds1)
+ModelMetrics::rmse(testSet$MEDV, preds2)
+
 
 # End

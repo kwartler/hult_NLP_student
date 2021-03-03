@@ -8,7 +8,7 @@
 
 
 # Wd
-setwd("~/Desktop/hult_NLP_student/lessons/class6/data")
+setwd("~/Desktop/hult_NLP_student/lessons/class5/data")
 
 # Libs
 library(text2vec)

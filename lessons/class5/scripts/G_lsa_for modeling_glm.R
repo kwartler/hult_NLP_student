@@ -8,7 +8,7 @@
 #' https://cran.r-project.org/web/packages/textmineR/vignettes/c_topic_modeling.html
 
 # Set the working directory
-setwd("~/Desktop/hult_NLP_student/lessons/class6/data")
+setwd("~/Desktop/hult_NLP_student/lessons/class5/data")
 
 # Libs
 library(tm)
@@ -43,7 +43,7 @@ gc()
 # Construct the Target
 yTarget <- c(rep(1,1000), rep(0,1000)) #1= about cars, 0 = electronics
 
-# Make TDM; lsa docs save DTM w/"documents in colums, terms in rows and occurrence frequencies in the cells."!
+# Make TDM; lsa docs save DTM w/"documents in columns, terms in rows and occurrence frequencies in the cells."!
 allTDM <- TermDocumentMatrix(allPosts, 
                              control = list(weighting = weightTfIdf))
 allTDM

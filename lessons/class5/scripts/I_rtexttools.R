@@ -7,7 +7,7 @@
 #' 
 
 # Set the working directory; note we are using the directory from previous day!
-setwd("~/Desktop/hult_NLP_student/lessons/class6/data")
+setwd("~/Desktop/hult_NLP_student/lessons/class5/data")
 
 # Libs
 library(tm)

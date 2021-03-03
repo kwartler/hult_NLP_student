@@ -13,7 +13,7 @@ library(pROC)
 library(ggplot2)
 
 # wd
-setwd("~/Desktop/hult_NLP_student/lessons/class6/data")
+setwd("~/Desktop/hult_NLP_student/lessons/class5/data")
 
 # Data
 bball <- read.csv('ncaa.csv')
@@ -71,6 +71,9 @@ head(results,12)
 
 # What is the accuracy?
 sum(diag(confMat)) / sum(confMat)
+
+# Easier
+Accuracy(results$ModelClassification,results$actual)
 
 # Visually how well did we separate our classes?
 ggplot(results, aes(x=teamPreds, color=as.factor(actual))) +

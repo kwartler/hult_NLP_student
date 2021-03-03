@@ -9,7 +9,7 @@
 #' https://cran.r-project.org/web/packages/RTextTools/index.html
 
 # Set the working directory
-setwd("~/Desktop/hult_NLP_student/lessons/class6/data")
+setwd("~/Desktop/hult_NLP_student/lessons/class5/data")
 
 # Libs
 library(tm)
