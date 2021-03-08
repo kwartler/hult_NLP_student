@@ -6,7 +6,7 @@
 #' Date: Jan 1 2020
 
 # wd
-setwd("~/Desktop/hult_NLP_student/lessons/class5/data")
+setwd("~/Desktop/hult_NLP_student/lessons/class6/data")
 
 # options
 options(scipen = 999, stringsAsFactors = F)
@@ -47,7 +47,7 @@ stops  <- c(stopwords('SMART'),'chars') # API truncation "[+3394 chars]"
 allInfo    <- VCorpus(DataframeSource(allInfo))
 allInfo    <- cleanCorpus(allInfo, stops) 
 #saveRDS(allInfo, 'allInfo.rds')
-allInfo    <- readRDS('allInfo.rds')
+#allInfo    <- readRDS('allInfo.rds')
 allInfoDTM <-  DocumentTermMatrix(allInfo)
 allInfoDTM <- as.matrix(allInfoDTM)
 allInfoDTM <- subset(allInfoDTM, rowSums(allInfoDTM) > 0)
@@ -87,6 +87,7 @@ tidyCorp
 # Teachable moment: "one less than the state of nature"
 seq(0,500,100) 
 length(seq(0,500,100))
+sourceID[,1]
 # How do you represent 6 states of nature in a factor?  with 5 levels!
 #With cut(), 6 breaks delimit 5 levels which will require only 5 labels!
 tidyCorp <- as.data.frame(tidyCorp)

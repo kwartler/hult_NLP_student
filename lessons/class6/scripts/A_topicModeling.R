@@ -8,7 +8,7 @@
 #'FOR REALLY DECENT EXPLANATION w/more math http://i.amcat.nl/lda/understanding_alpha.html
 
 # Wd
-setwd("~/Desktop/hult_NLP_student/lessons/class5/data")
+setwd("~/Desktop/hult_NLP_student/lessons/class6/data")
 
 # Install Issue on cloud...sometimes
 # install.packages("httpuv", dependencies = TRUE, INSTALL_opts = '--no-lock')

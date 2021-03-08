@@ -5,7 +5,7 @@
 #' License: GPL>=3
 #' Date: Jan 1 2020
 # Wd
-setwd("~/Desktop/hult_NLP_student/lessons/class5/data")
+setwd("~/Desktop/hult_NLP_student/lessons/class6/data")
 
 # Libs
 library(skmeans)
