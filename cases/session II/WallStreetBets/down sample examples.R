@@ -5,7 +5,7 @@ setwd("~/Desktop/hult_NLP_student/cases/session II/WallStreetBets")
 txt <- read.csv("CASE_gme.csv" )
 
 # One method is random sample
-idx <- sample(1:nrow(txt), 5)
+idx <- sample(1:nrow(txt), 5000)
 randoTxt <- txt[idx,]
 
 # Subset by a cutoff date
@@ -26,4 +26,4 @@ dim(smaller)
 # Option 2
 library(slam)
 smallOption2 <- big[, col_sums(big)>9]
-dim(smallest)
+dim(smallOption2)
