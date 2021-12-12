@@ -38,7 +38,9 @@ docAssignment<-function(x){
   x <- table(x)
   x <- as.matrix(x)
   x <- t(x)
-  x <-max.col(x)
+  maxCol <-max.col(x)
+  x <- x[1,maxCol]
+  return(x)
 }
 
 # Options & Functions
